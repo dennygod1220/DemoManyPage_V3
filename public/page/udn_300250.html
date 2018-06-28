@@ -72,10 +72,8 @@
 
         socket.once('modifyOK', function (data) {
             console.log("reload")
-            // window.location.assign('http://127.0.0.1:9999/store/udn_300250/' + socket.id + '?cfadc=7930:' + data);
-            window.location.assign(MyServerIP+':'+MyServerPort);
-            window.open(MyServerIP+':'+MyServerPort+'/store/udn_300250/' + socket.id + '?cfadc=7930:' + data,'_blank');
-        });
+            window.location.assign(MyServerIP+':'+MyServerPort+'/store/udn_300250/' + socket.id + '?cfadc=7930:' + data,'_blank');
+            })
     </script>
 </body>
 

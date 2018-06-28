@@ -71,9 +71,9 @@
 
         socket.once('modifyOK', function (data) {
             console.log("reload")
-            window.location.assign(MyServerIP + ':' + MyServerPort);
-            window.open(MyServerIP + ':' + MyServerPort + '/store/sportsv_300250/' + socket.id + '?cfadc=2401:' +
+            window.location.assign(MyServerIP + ':' + MyServerPort + '/store/sportsv_300250/' + socket.id + '?cfadc=2401:' +
                 data, '_blank');
+
         });
     </script>
 </body>

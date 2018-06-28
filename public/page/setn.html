@@ -77,8 +77,7 @@
         socket.once('modifyOK', function (data) {
             console.log("reload")
             // window.location.assign('http://127.0.0.1:9999/store/setn/' + socket.id + '?cfadc=7965:' + data);
-            window.location.assign(MyServerIP+':'+MyServerPort);
-            window.open(MyServerIP+':'+MyServerPort+'/store/setn/' + socket.id + '?cfadc=7965:' + data,'_blank');
+            window.location.assign(MyServerIP+':'+MyServerPort+'/store/setn/' + socket.id + '?cfadc=7965:' + data,'_blank');
         
         });
     </script>
