@@ -73,6 +73,16 @@ app.get('/udn_300250', function (req, res) {
     connection(io,siteurl,storeDir,takefilepath,functionName);
 })
 
+//udn 聯合新聞 手機 300250
+app.get('/udn_m_300250', function (req, res) {
+    res.sendfile('public/page/udn_m_300250.html');
+    siteurl = 'https://udn.com/mobile/index';
+    storeDir = 'public/store/udn_m_300250/';
+    takefilepath = './public/store/udn_m_300250/';
+    functionName = 'udn_m_300250';
+    connection(io,siteurl,storeDir,takefilepath,functionName);
+})
+
 // 運動世界 300250
 app.get('/sportsv_300250', function (req, res) {
     res.sendfile('public/page/sportsv_300250.html');

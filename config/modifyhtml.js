@@ -44,6 +44,15 @@ var modifyhtml = {
                     console.log('callback udn_300250')
                 });
             },
+            //udn手機 300250
+            udn_m_300250: function (data) {
+                var $ = cheerio.load(data);
+                $("#div-gpt-ad-1488941878893-0").children().remove();
+                $('#div-gpt-ad-1488941878893-0').append('<div style="text-align: center;"><ins class="clickforceads" style="display:inline-block;width:300px;height:250px;" data-ad-zone="7930"></ins><script async type="text/javascript" src="//cdn.doublemax.net/js/init.js"></script></div>')
+                fs.writeFile(path + socketID + '/index.html', $.html(), function () {
+                    console.log('callback udn_m_300250')
+                });
+            },
             //運動世界
             sportsv_300250: function (data) {
                 var $ = cheerio.load(data);
