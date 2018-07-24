@@ -53,6 +53,16 @@ app.get('/setn', function (req, res) {
     connection(io,siteurl,storeDir,takefilepath,functionName);
 })
 
+//三立新聞 手機板 320 480
+app.get('/setn_m_300250', function (req, res) {
+    res.sendfile('public/page/setn_m_320480.html');
+    siteurl = 'https://www.setn.com/m/';
+    storeDir = 'public/store/setn_m_320480/';
+    takefilepath = './public/store/setn_m_320480/';
+    functionName = 'setn_m_320480';
+    connection(io,siteurl,storeDir,takefilepath,functionName);
+})
+
 // TVBS 300600
 app.get('/tvbs', function (req, res) {
     res.sendfile('public/page/tvbs.html');
@@ -80,6 +90,16 @@ app.get('/udn_m_300250', function (req, res) {
     storeDir = 'public/store/udn_m_300250/';
     takefilepath = './public/store/udn_m_300250/';
     functionName = 'udn_m_300250';
+    connection(io,siteurl,storeDir,takefilepath,functionName);
+})
+
+//udn 聯合新聞 手機板 320 480
+app.get('/udn_m_320480', function (req, res) {
+    res.sendfile('public/page/udn_m_320480.html');
+    siteurl = 'https://udn.com/mobile/index';
+    storeDir = 'public/store/udn_m_320480/';
+    takefilepath = './public/store/udn_m_320480/';
+    functionName = 'udn_m_320480';
     connection(io,siteurl,storeDir,takefilepath,functionName);
 })
 

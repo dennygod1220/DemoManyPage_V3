@@ -26,6 +26,7 @@ var modifyhtml = {
                     console.log('callback setn')
                 });
             },
+
             //TVBS
             tvbs: function (data) {
                 var $ = cheerio.load(data);
@@ -51,6 +52,15 @@ var modifyhtml = {
                 $('#div-gpt-ad-1488941878893-0').append('<div style="text-align: center;"><ins class="clickforceads" style="display:inline-block;width:300px;height:250px;" data-ad-zone="7930"></ins><script async type="text/javascript" src="//cdn.doublemax.net/js/init.js"></script></div>')
                 fs.writeFile(path + socketID + '/index.html', $.html(), function () {
                     console.log('callback udn_m_300250')
+                });
+            },
+            //udn手機 320480
+            udn_m_320480: function (data) {
+                var $ = cheerio.load(data);
+                $(".ads-container").children().remove();
+                $(".ads-container").append('<ins class="clickforceads" style="display:inline-block;width:320px;height:480px;left:0;top:0;" data-ad-zone="8107"></ins><script async type="text/javascript" src="//cdn.doublemax.net/js/init.js"></script>')
+                fs.writeFile(path + socketID + '/index.html', $.html(), function () {
+                    console.log('callback setn')
                 });
             },
             //運動世界

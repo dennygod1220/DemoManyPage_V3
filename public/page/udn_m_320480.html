@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>假_UDN 手機</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="page/loading.css">
+    <script src="./page/IP_config.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" style="height:50px;">
+
+        </div>
+        <div id="test">
+            <div class="loader">
+                <span>L</span>
+                <span>O</span>
+                <span>A</span>
+                <span>D</span>
+                <span>I</span>
+                <span>N</span>
+                <span>G</span>
+
+                <div class="covers">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+            </div>
+            <h1 id="link">準備中...請稍後</h1>
+        </div>
+    </div>
+
+
+    <script>
+        var socket = io();
+        var name = "Client Test";
+        socket.emit('delete ok');
+        $("#link").text("正在為您下載 UDN手機...");
+
+        socket.once('downloadOK', function () {
+
+            $("#link").text("下載完成");
+            $(
+                '<h2 id="talk">請填入素材ID 只能是300480的歐</h2><br>   <div class="input-group mb-3"><div class="input-group-prepend"><button id="sendbtn" class="btn btn-outline-secondary" type="button">送出</button></div><input type="text" id="creativeID" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1"></div>'               
+            ).insertAfter('#link');
+            $(".loader").hide();
+            $("#sendbtn").click(function () {
+                $(".loader").show();
+                var creativeID = $("#creativeID").val();
+                socket.emit('creative id', creativeID);
+                $("#sendbtn").remove();
+                $("#talk").remove();
+                $("#creativeID").remove();
+                $("#link").text("伺服器正在竄改網頁中，請再稍等...");
+            })
+        });
+
+        socket.once('modifyOK', function (data) {
+            console.log("reload")
+            window.location.assign(MyServerIP+':'+MyServerPort+'/store/udn_m_320480/' + socket.id + '?cfadc=8107:' + data,'_blank');
+            })
+    </script>
+</body>
+
+</html>
